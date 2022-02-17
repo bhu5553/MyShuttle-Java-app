@@ -1,75 +1,24 @@
 # ASP.NET Core (.NET Framework)
-
 # Build and test ASP.NET Core projects targeting the full .NET Framework.
-
 # Add steps that publish symbols, save build artifacts, and more:
-
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
-
-
-
 trigger:
-
 - master
-
-
-
 trigger:
-
-
-
 - main
-
-
-
- 
-
-
-
 pool:
-
-
-
 vmImage: ubuntu-18.04
-
-
-
- 
-
-
-
 steps:
-
-
-
-
-
 - task: Maven@3
-
   displayName: 'Maven pom.xml'
-
   inputs:
-
     options: '-DskipITs --settings ./maven/settings.xml'
-
-
-
 - task: CopyFiles@2
-
   displayName: 'Copy Files'
-
   inputs:
-
     SourceFolder: '$(build.sourcesdirectory)'
-
     TargetFolder: '$(build.artifactstagingdirectory)'
-
-
-
 - task: PublishBuildArtifacts@1
-
   displayName: 'Publish Artifact'
-
   inputs:
-
     PathtoPublish: '$(build.artifactstagingdirectory)'
