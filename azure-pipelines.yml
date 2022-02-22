@@ -5,7 +5,7 @@
 trigger:
 - main
 pool:
-vmImage: ubuntu-18.04
+vmImage: ubuntu-latest
 steps:
 - task: Maven@3
   displayName: 'Maven pom.xml'
