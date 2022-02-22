@@ -13,12 +13,10 @@ steps:
   displayName: 'Maven pom.xml'
   inputs:
     options: '-DskipITs --settings ./maven/settings.xml'
-- task: CopyFiles@2
-  displayName: 'Copy Files'
+- task: PowerShell@2
   inputs:
-    SourceFolder: '$(build.sourcesdirectory)'
-    TargetFolder: '$(build.artifactstagingdirectory)'
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact'
-  inputs:
-    PathtoPublish: '$(build.artifactstagingdirectory)'
+    targetType: 'inline'
+    script: |
+      # Write your PowerShell commands here.
+      
+      Write-Host "Hello World"
